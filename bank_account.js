@@ -10,13 +10,15 @@ function tambahSaldo() {
 }
 
 function kurangiSaldo() {
-  const jumlahKurang = parseFloat(window.prompt("Masukkan jumlah saldo yang ingin dikurangi: "));
-  saldo -= jumlahKurang;
-
-  console.log(`Saldo baru: Rp${saldo}`);
+    const jumlah = parseFloat(prompt("Masukkan jumlah saldo yang ingin dikurangi:"));
+    if (!isNaN(jumlah)) {
+        bankAccount.withdraw(jumlah);
+    } else {
+        alert("Masukan tidak valid. Silakan masukkan angka.");
+    }
 }
 
-
-tambahSaldo(); 
-kurangiSaldo(); 
+function cekSaldo() {
+    bankAccount.checkBalance();
+}
 
